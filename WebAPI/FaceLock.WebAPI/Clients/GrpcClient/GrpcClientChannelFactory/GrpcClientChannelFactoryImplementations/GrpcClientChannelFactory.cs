@@ -14,6 +14,7 @@ namespace FaceLock.WebAPI.Clients.GrpcClient.GrpcClientChannelFactory.GrpcClient
 
         public GrpcChannel CreateGrpcClientChannel()
         {
+
             return GrpcChannel.ForAddress(_grpcServerAddress,
                         new GrpcChannelOptions()
                         {

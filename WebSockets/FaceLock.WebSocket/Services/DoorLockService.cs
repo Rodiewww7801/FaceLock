@@ -68,12 +68,14 @@ namespace FaceLock.WebSocket.Services
             {
                 if (request is null)
                 {
+                    Console.WriteLine($"WhiteList: Bad request InvalidArgument");
                     throw new RpcException(new Status(StatusCode.InvalidArgument, "Request is null"), "Bad request");
                 }
                 var serialNumber = request.SerialNumber;
 
                 WebSocketHub.AddToWhiteList(serialNumber);
 
+                Console.WriteLine($"WhiteList: Added new serial number");
                 _logger.LogInformation($"WhiteList: Added new serial number");
                 return await Task.FromResult(new DoorLockServiceResponse
                 {
